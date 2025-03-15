@@ -1,4 +1,4 @@
-SR flip flop is also the storage element that can store the single data it may be either 1 or 0. The block diagram of the SR flip-flop is shown below with its truth table and waveforms.
+SR flip flop is also the storage element that can store the single data it may be either 1 or 0. The block diagram of the SR flip-flop is shown below, along with its truth table and waveforms.
 
 
 ![image](https://github.com/user-attachments/assets/88d2bf05-9e0c-4749-b81e-c5455b71d38f)
