@@ -1,0 +1,201 @@
+QuestaSim-64 qrun 2024.3_1 Utility 2024.10 Oct 17 2024
+Start time: 02:55:47 on Mar 15,2025
+qrun -batch -access=rw+/. -uvmhome uvm-1.2 -timescale 1ns/1ns -mfcu design.sv testbench.sv -voptargs="+acc=npr" -do " run -all; exit" 
+Creating library 'qrun.out/work'.
+Mapping library 'mtiUvm' to 'qrun.out/work'.
+QuestaSim-64 vlog 2024.3_1 Compiler 2024.10 Oct 17 2024
+Start time: 02:55:47 on Mar 15,2025
+vlog -timescale 1ns/1ns -mfcu -ccflags "-Wno-missing-declarations" -ccflags "-Wno-maybe-uninitialized" -ccflags "-Wno-return-type" -ccflags "-DQUESTA" /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.cc /usr/share/questa/questasim/verilog_src/uvm-1.2/src/uvm_pkg.sv /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv design.sv testbench.sv -work qrun.out/work "+incdir+/usr/share/questa/questasim/verilog_src/uvm-1.2/src" -statslog qrun.out/stats_log -writesessionid "+qrun.out/top_dus" -csession=incr 
+-- Compiling package uvm_pkg (uvm-1.2 Built-in)
+-- Compiling package questa_uvm_pkg
+-- Importing package uvm_pkg (uvm-1.2 Built-in)
+-- Compiling module SR_FLIP
+-- Compiling package uvm_pkg_sv_unit
+-- Importing package uvm_pkg (uvm-1.2 Built-in)
+-- Compiling interface sr_intf
+-- Compiling module top
+
+Top level modules:
+	top
+-- Compiling DPI/PLI C++ file /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.cc
+
+In file included from /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_hdl.c:27,
+                 from /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.cc:37:
+/usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_hdl_questa.c: In function 'int uvm_is_vhdl_path(char*)':
+/usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_hdl_questa.c:90:12: warning: 'char* strncpy(char*, const char*, size_t)' specified bound depends on the length of the source argument [-Wstringop-overflow=]
+   90 |     strncpy(path_copy, path, path_len);
+      |     ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_hdl_questa.c:72:20: note: length computed here
+   72 |   path_len = strlen(path);
+      |              ~~~~~~^~~~~~
+
+End time: 02:55:50 on Mar 15,2025, Elapsed time: 0:00:03
+Errors: 0, Warnings: 0
+QuestaSim-64 vopt 2024.3_1 Compiler 2024.10 Oct 17 2024
+** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+Start time: 02:55:50 on Mar 15,2025
+vopt -access=rw+/. -timescale 1ns/1ns -mfcu "+acc=npr" -findtoplevels qrun.out/work+1+ -work qrun.out/work -statslog qrun.out/stats_log -csession=incr -o qrun_opt -csessionid=2 
+
+Top level modules:
+	top
+
+Analyzing design...
+-- Loading module top
+-- Loading package questa_uvm_pkg
+-- Loading interface sr_intf
+-- Loading module SR_FLIP
+Optimizing 7 design-units (inlining 0/3 module instances):
+-- Optimizing package uvm_pkg (uvm-1.2 Built-in)(fast)
+-- Optimizing package questa_uvm_pkg(fast)
+-- Optimizing package uvm_pkg_sv_unit(fast)
+-- Optimizing module top(fast)
+-- Optimizing module SR_FLIP(fast)
+-- Optimizing interface sr_intf(fast__2)
+-- Optimizing interface sr_intf(fast)
+Optimized design name is qrun_opt
+End time: 02:55:58 on Mar 15,2025, Elapsed time: 0:00:08
+Errors: 0, Warnings: 1
+# vsim -batch -lib qrun.out/work -do " run -all; exit" -statslog qrun.out/stats_log qrun_opt -appendlog -l qrun.log 
+# Start time: 02:55:58 on Mar 15,2025
+# Loading /tmp/unknown@6df61472f9e7_dpi_51/linux_x86_64_gcc-10.3.0/export_tramp.so
+# //  Questa Sim-64
+# //  Version 2024.3_1 linux_x86_64 Oct 17 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading sv_std.std
+# Loading work.sr_intf(fast)
+# Loading work.uvm_pkg(fast)
+# Loading work.uvm_pkg_sv_unit(fast)
+# Loading work.questa_uvm_pkg(fast)
+# Loading work.top(fast)
+# Loading work.sr_intf(fast__2)
+# Loading work.SR_FLIP(fast)
+# Compiling /tmp/unknown@6df61472f9e7_dpi_51/linux_x86_64_gcc-10.3.0/exportwrapper.c
+# Loading /tmp/unknown@6df61472f9e7_dpi_51/linux_x86_64_gcc-10.3.0/vsim_auto_compile.so
+# 
+# run -all
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(392) @ 0: reporter [UVM/RELNOTES] 
+# ----------------------------------------------------------------
+# UVM-1.2
+# (C) 2007-2014 Mentor Graphics Corporation
+# (C) 2007-2014 Cadence Design Systems, Inc.
+# (C) 2006-2014 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# (C) 2013-2014 NVIDIA Corporation
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(277) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(278) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO sr_test.sv(9) @ 0: uvm_test_top [TEST_COMPONENT] Test component is created
+# UVM_INFO @ 0: reporter [RNTST] Running test sr_test...
+# UVM_INFO sr_env.sv(59) @ 0: uvm_test_top.env [ENV] Environment component is created
+# UVM_INFO sr_agt.sv(12) @ 0: uvm_test_top.env.agt [AGENT] Agent component is created
+# UVM_INFO sr_scbd.sv(14) @ 0: uvm_test_top.env.scbd [SCOREBOARD] Scoreboard component is created
+# UVM_INFO sr_drv.sv(11) @ 0: uvm_test_top.env.agt.drv [DRIVER] Driver component is created
+# UVM_INFO sr_mon.sv(11) @ 0: uvm_test_top.env.agt.mon [MONITOR] Monitor component is created
+# UVM_INFO sr_seqr.sv(8) @ 0: uvm_test_top.env.agt.seqr [SEQUENCER] Sequencer component is created
+# UVM_INFO sr_agt.sv(48) @ 0: uvm_test_top.env.agt [AGENT] Driver and sequencer ports connected
+# UVM_INFO sr_env.sv(95) @ 0: uvm_test_top.env [ENV] Agent's analysis port connected to scoreboard's export
+# ----------------------------------------------------------------
+# Name                         Type                    Size  Value
+# ----------------------------------------------------------------
+# uvm_test_top                 sr_test                 -     @360 
+#   env                        sr_env                  -     @374 
+#     agt                      sr_agt                  -     @384 
+#       drv                    sr_drv                  -     @417 
+#         rsp_port             uvm_analysis_port       -     @434 
+#         seq_item_port        uvm_seq_item_pull_port  -     @425 
+#       mon                    sr_mon                  -     @445 
+#         item_collected_port  uvm_analysis_port       -     @453 
+#       seqr                   sr_seqr                 -     @464 
+#         rsp_export           uvm_analysis_export     -     @472 
+#         seq_item_export      uvm_seq_item_pull_imp   -     @578 
+#         arbitration_queue    array                   0     -    
+#         lock_queue           array                   0     -    
+#         num_last_reqs        integral                32    'd1  
+#         num_last_rsps        integral                32    'd1  
+#     scbd                     sr_scbd                 -     @394 
+#       item_collected_export  uvm_analysis_imp        -     @402 
+# ----------------------------------------------------------------
+# UVM_INFO sr_test.sv(48) @ 0: uvm_test_top [TEST_COMPONENT] End of elaboration phase
+# UVM_INFO sr_test.sv(26) @ 0: uvm_test_top [TEST_COMPONENT] The sequence will start
+# UVM_INFO sr_seq.sv(12) @ 0: reporter@@sr_seq1 [SEQUENCE] Sequence object is created
+# UVM_INFO sr_seqitem.sv(13) @ 0: reporter@@item [SEQ_ITEM] Sequence item object is created
+# UVM_INFO sr_seqitem.sv(13) @ 0: reporter@@item [SEQ_ITEM] Sequence item object is created
+# UVM_INFO sr_mon.sv(43) @ 10: uvm_test_top.env.agt.mon [MONITOR_DEBUG] Reset is active, skipping this transaction
+# UVM_INFO sr_seq.sv(34) @ 10: uvm_test_top.env.agt.seqr@@sr_seq1 [SEQUENCE] Generated item: sr=11, q=0, qbar=0
+# UVM_INFO sr_seqitem.sv(13) @ 10: reporter@@item [SEQ_ITEM] Sequence item object is created
+# UVM_INFO sr_scbd.sv(22) @ 30: uvm_test_top.env.scbd [SCOREBOARD] Received item: sr = 3, q = 0, qbar = 1
+# UVM_INFO sr_mon.sv(46) @ 30: uvm_test_top.env.agt.mon [MONITOR] Data sent to analysis port
+# UVM_INFO sr_seq.sv(34) @ 30: uvm_test_top.env.agt.seqr@@sr_seq1 [SEQUENCE] Generated item: sr=10, q=0, qbar=0
+# UVM_INFO sr_seqitem.sv(13) @ 30: reporter@@item [SEQ_ITEM] Sequence item object is created
+# UVM_INFO sr_scbd.sv(22) @ 50: uvm_test_top.env.scbd [SCOREBOARD] Received item: sr = 2, q = 0, qbar = 0
+# UVM_INFO sr_mon.sv(46) @ 50: uvm_test_top.env.agt.mon [MONITOR] Data sent to analysis port
+# UVM_INFO sr_seq.sv(34) @ 50: uvm_test_top.env.agt.seqr@@sr_seq1 [SEQUENCE] Generated item: sr=01, q=0, qbar=0
+# UVM_INFO sr_seqitem.sv(13) @ 50: reporter@@item [SEQ_ITEM] Sequence item object is created
+# UVM_INFO sr_scbd.sv(22) @ 70: uvm_test_top.env.scbd [SCOREBOARD] Received item: sr = 1, q = 1, qbar = 0
+# UVM_INFO sr_mon.sv(46) @ 70: uvm_test_top.env.agt.mon [MONITOR] Data sent to analysis port
+# UVM_INFO sr_seq.sv(34) @ 70: uvm_test_top.env.agt.seqr@@sr_seq1 [SEQUENCE] Generated item: sr=01, q=0, qbar=0
+# UVM_INFO sr_seqitem.sv(13) @ 70: reporter@@item [SEQ_ITEM] Sequence item object is created
+# UVM_INFO sr_scbd.sv(22) @ 90: uvm_test_top.env.scbd [SCOREBOARD] Received item: sr = 1, q = 0, qbar = 1
+# UVM_INFO sr_mon.sv(46) @ 90: uvm_test_top.env.agt.mon [MONITOR] Data sent to analysis port
+# UVM_INFO sr_seq.sv(34) @ 90: uvm_test_top.env.agt.seqr@@sr_seq1 [SEQUENCE] Generated item: sr=00, q=0, qbar=0
+# UVM_INFO sr_test.sv(41) @ 90: uvm_test_top [TEST_COMPONENT] The sequence has completed
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_objection.svh(1270) @ 90: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_report_server.svh(847) @ 90: reporter [UVM/REPORT/SERVER] 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   38
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [AGENT]     2
+# [DRIVER]     1
+# [ENV]     2
+# [MONITOR]     5
+# [MONITOR_DEBUG]     1
+# [Questa UVM]     2
+# [RNTST]     1
+# [SCOREBOARD]     5
+# [SEQUENCE]     6
+# [SEQUENCER]     1
+# [SEQ_ITEM]     6
+# [TEST_COMPONENT]     4
+# [TEST_DONE]     1
+# [UVM/RELNOTES]     1
+# 
+# ** Note: $finish    : /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(517)
+#    Time: 90 ns  Iteration: 75  Instance: /top
+# End time: 02:56:00 on Mar 15,2025, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0
+End time: 02:56:00 on Mar 15,2025, Elapsed time: 0:00:13
+*** Summary *********************************************
+    qrun: Errors:   0, Warnings:   0
+    vlog: Errors:   0, Warnings:   0
+    vopt: Errors:   0, Warnings:   1
+    vsim: Errors:   0, Warnings:   0
+  Totals: Errors:   0, Warnings:   1
